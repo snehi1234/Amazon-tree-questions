@@ -1,0 +1,10 @@
+def func(root,parent,gParent,k) :
+    if root is None :
+        return
+    if root.left :
+        func(root.left,root,parent,k)
+    if root.right :
+        func(root.right,root,parent,k)
+    if root+parent > k :
+        print(root.data)
+        
