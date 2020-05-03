@@ -1,0 +1,7 @@
+def func(root) :
+    if root is None :
+        return 1 
+    l=func(root.left)
+    r=func(root.right)
+    print(root,"----",max(l,r))
+    return max(l,r)+1 
