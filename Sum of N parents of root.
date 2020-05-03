@@ -1,0 +1,16 @@
+idea : Store the elements in the queue and at each step calculate the last elemnts sum.
+
+def cal(q,N) :          // function calculates the sum of the N elemtns in q.
+    return sum(q[len(q)-N-1:])
+
+def func(root,k,q,N):
+    if root is None :
+        return None 
+        
+    q.append(root.data)
+    func(root.left,k,q,N)
+    func(root.right,k,q,N)
+    if len(q)>N :
+        if cal(q,N)>k :
+            print(root.data)
+    q.pop()
