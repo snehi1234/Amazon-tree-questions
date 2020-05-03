@@ -1,0 +1,14 @@
+def function(root,sum) :
+    if root is None :
+        return None 
+    
+    root.left = func(root.left , sum-root.left)
+    root.right = func(root.right , sum-root.right)
+    if root.left is None and root.right is None :
+        if sum>root.data :
+            return None 
+    
+    return root 
+    
+    
+func(root , k )
