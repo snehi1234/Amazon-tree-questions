@@ -1,0 +1,19 @@
+#declare index as global variable
+# calculate height of k-ary tree and pass it as a paramater.
+# height is int(ceil(log(float(n) * (k - 1) + 1) / log(float(k)))) 
+global ind = 0
+
+def func(pre,n,h):
+    if ind>=n :
+        return None
+    
+    temp = newNode(pre[ind])
+    
+    for i in range(k) :
+        if ind<n and h>1 :
+            ind+=1
+            temp.child.append(func(pre,n,h))
+        else :
+            temp.child.append(None)
+            
+    return temp
