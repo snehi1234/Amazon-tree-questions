@@ -1,0 +1,17 @@
+#declare index as global variable
+
+global ind = 0
+
+def func(pre,LN,n):
+    if ind>=n :
+        return None
+    
+    temp = newNode(pre[ind])
+    if ind<n and LN[ind]=='L' :
+        ind +=1 
+        return temp
+    elif ind<n and LN[ind]=='N' :
+        ind+=1 
+        temp.left = func(pre,LN,n)
+        temp.right = func(pre,LN,n)
+        return temp
