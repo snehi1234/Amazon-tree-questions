@@ -1,0 +1,52 @@
+logic - At each and every node calculate the left and right depths and return it to the previous node.
+      (i.e; the sum of the distance from root to leaf + height of the other subtree).
+      Using the global variable handles all the corner cases like the below tree.
+      EX :
+        1
+         \
+          2
+           \
+            3
+           /  \
+           2   4
+
+
+class Node:
+    # Contructor to create a new node 
+    def __init__(self, data): 
+        self.data = data 
+        self.left = None
+        self.right = None
+
+x=0
+
+def func(root) :
+    if root is None :
+        return 0
+    global x
+    l=func(root.left)
+    r=func(root.right)
+    x= max(x,l+r)
+    #print(root.data,l,r)
+    if r==0 or l==0 :
+        return 1+r+l
+    elif l==0 :
+        return r+1 
+    elif r==0 :
+        return l+1
+    else :
+        return l+r
+     
+    
+    
+root = Node(1)
+root.left = Node(2)
+root.right   = Node(3)
+root.left.left  = Node(4)
+root.left.right = Node(5)
+root.right.right = Node(6)
+root.right.right.left   = Node(7)
+root.right.right.right  = Node(8)
+
+func(root)
+print(x)
